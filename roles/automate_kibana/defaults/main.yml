@@ -1,2 +1,5 @@
 ---
 # defaults file for automate_kibana
+
+kibana_repo: "True"
+kibana_yum_repo: "False"
