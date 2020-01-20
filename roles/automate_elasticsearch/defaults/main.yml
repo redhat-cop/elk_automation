@@ -1,2 +1,16 @@
 ---
 # defaults file for automate_elasticsearch
+
+elasticsearch_repo:
+  baseurl: "https://artifacts.elastic.co/packages/7.x/yum"
+  name: "Elasticsearch repository for 7.x packages"
+  enabled: yes 
+  owner: root
+  repo_gpgcheck: no
+  sslverify: yes
+  gpgkey: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+  state: present
+  gpgcheck: "yes"
+  description: "Elasticsearch Repository"
+  group: "root"
+  async: yes

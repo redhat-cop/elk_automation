@@ -40,4 +40,5 @@ GPLv3
 Author Information
 ------------------
 
+jlozadad@redhat.com
 

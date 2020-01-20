@@ -4,11 +4,26 @@
     template:
         dest: /etc/yum.repos.d/elasticsearch.repo # required. Location to render the template to on the remote machine.
         src: elasticsearch.j2.repo # required. Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.
-        owner: undefined # not required. Name of the user that should own the file/directory, as would be fed to I(chown).
-        group: undefined # not required. Name of the group that should own the file/directory, as would be fed to I(chown).
-        mode: undefined # not required. Mode the file or directory should be. For those used to I(/usr/bin/chmod) remember that modes are actually octal numbers.  You must either add a leading zero so that Ansible's YAML parser knows it is an octal number (like C(0644) or C(01777)) or quote it (like C('644') or C('1777')) so Ansible receives a string and can do its own conversion from string into number.  Giving Ansible a number without following one of these rules will end up with a decimal number which will have unexpected results.  As of version 1.8, the mode may be specified as a symbolic mode (for example, C(u+rwx) or C(u=rw,g=r,o=r)).  As of version 2.6, the mode may also be the special string C(preserve).  C(preserve) means that the file will be given the same permissions as the source file.
-        backup: no # not required. Create a backup file including the timestamp information so you can get the original file back if you somehow clobbered it incorrectly.
-    
+        owner: root # not required. Name of the user that should own the file/directory, as would be fed to I(chown).
+        group: root # not required. Name of the group that should own the file/directory, as would be fed to I(chown).
+    when: repo_template 
+
+  - name: Add the elasticsearch yum repository with yum repo
+    yum_repository:
+        name: "Elasticsearch repository for 7.x packages" # required. Unique repository ID. This option builds the section name of the repository in the repo file.,This parameter is only required if I(state) is set to C(present) or C(absent).
+        enabled: yes # not required. This tells yum whether or not use this repository.
+        owner: root # not required. Name of the user that should own the file/directory, as would be fed to I(chown).
+        repo_gpgcheck: no # not required. This tells yum whether or not it should perform a GPG signature check on the repodata from this repository.
+        sslverify: yes # not required. Defines whether yum should verify SSL certificates/hosts at all.
+        gpgkey: "https://artifacts.elastic.co/GPG-KEY-elasticsearch" # not required. A URL pointing to the ASCII-armored GPG key file for the repository.,It can also be a list of multiple URLs.
+        state: present # not required. choices: absent;present. State of the repo file.
+        gpgcheck: "yes"
+        description: "Elasticsearch Repository"
+        baseurl: "https://artifacts.elastic.co/packages/7.x/yum"
+        group: "root"
+        async: yes # not required. If set to C(yes) Yum will download packages and metadata from this repo in parallel, if possible.
+    when: template_repo
+
   - name: Install elasticsearch
     yum:
       name: elasticsearch
