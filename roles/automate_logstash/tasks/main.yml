@@ -1,0 +1,12 @@
+---
+# tasks file for automate_logstash
+
+  - name: install logstash
+    include_tasks: logstash_install.yml
+    when: logstash_install
+    tag: logstashi
+
+  - name: Configure logstash
+    include_tasks: logstash_configure.yml
+    when: logstash_install
+    tag: logstashc
