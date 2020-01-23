@@ -3,8 +3,10 @@
 
   - name: Install elasticsearch
     include_tasks: install.yml
-    when: 
+    when: elasticsearch_install 
+    tag: install
 
   - name: Configure elasticsearch
     include_tasks: configure.yml
-    when: 
+    when:  elasticsearch_configure
+    tag: configure

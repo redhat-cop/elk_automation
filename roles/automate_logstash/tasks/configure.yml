@@ -1,0 +1,35 @@
+---
+
+  #- name: Template systemd kibana service
+  #  template:
+  #      dest: "/usr/lib/systemd/system/kibana.service" # required. Location to render the template to on the remote machine.
+  #      src: "kibana.service" # required. Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.
+  #      owner: root # not required. Name of the user that should own the file/directory, as would be fed to I(chown).
+  #      group: root # not required. Name of the group that should own the file/directory, as would be fed to I(chown).
+
+  - name: Template logstash.yml
+    template:
+        dest: "/etc/logstash/logstash.yml" # required. Location to render the template to on the remote machine.
+        src: "logstash.j2.yml" # required. Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.
+        owner: "logstash" # not required. Name of the user that should own the file/directory, as would be fed to I(chown).
+        group: "logstash" # not required. Name of the group that should own the file/directory, as would be fed to I(chown).
+        backup: no # not required. Create a backup file including the timestamp information so you can get the original file back if you somehow clobbered it incorrectly.
+    notify: reload logstash
+
+
+  - name: Template jvm.options
+    template:
+        dest: "/etc/logstash/jvm.options" # required. Location to render the template to on the remote machine.
+        src: "jvm.options.j2" # required. Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.
+        owner: "logstash" # not required. Name of the user that should own the file/directory, as would be fed to I(chown).
+        group: "logstash" # not required. Name of the group that should own the file/directory, as would be fed to I(chown).
+        backup: no # not required. Create a backup file including the timestamp information so you can get the original file back if you somehow clobbered it incorrectly.
+    
+  
+  - name: Template startup.options
+    template:
+        dest: "/etc/logstash/startup.options" # required. Location to render the template to on the remote machine.
+        src: "startup.options.j2" # required. Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.
+        owner: "logstash" # not required. Name of the user that should own the file/directory, as would be fed to I(chown).
+        group: "logstash" # not required. Name of the group that should own the file/directory, as would be fed to I(chown).
+        backup: no # not required. Create a backup file including the timestamp information so you can get the original file back if you somehow clobbered it incorrectly.

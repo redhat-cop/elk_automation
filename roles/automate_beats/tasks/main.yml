@@ -1,0 +1,19 @@
+---
+# tasks file for automate_beats
+
+
+  - name: Install Filebeat
+    include_tasks: filebeat.yml
+    when: filebeat
+
+  - name: Install Metricbeat
+    include_tasks: metricbeat.yml
+    when: metricbeat
+
+  - name: Install Packetbeat
+    include_tasks: metricbeat.yml
+    when: metricbeat.yml
+    
+  - name: Install Auditbeat.yml
+    include_tasks: auditbeat.yml
+    when: auditbeat

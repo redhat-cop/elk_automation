@@ -1,0 +1,5 @@
+---
+
+  - hosts: elasticsearch
+    roles:
+      - automate_elasticsearch

@@ -1,0 +1,5 @@
+---
+
+  - hosts: kibana
+    roles:
+      - automate_kibana
