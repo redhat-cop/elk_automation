@@ -3,3 +3,11 @@
 
 kibana_repo: "True"
 kibana_yum_repo: "False"
+kibana_yum_repo_dest: "/etc/yum/repos.d/kibana.repo"
+kibana_yum_repo_file: "kibana.j2.repo"
+kiabana_yum_file_name: "Kibana repository for 7.x packages"
+kibana_rom: kibana
+kibana_service_dest: "/usr/lib/systemd/system/kibana.service"
+kibana_service_file: "kibana.service"
+kibana_config_template_dest: "/etc/kibana/kibana.yml"
+kibana_config_template_file: "kibana.j2.yml"

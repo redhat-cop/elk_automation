@@ -2,15 +2,15 @@
 
   - name: Add the elasticsearch yum repository
     template:
-        dest: /etc/yum.repos.d/elasticsearch.repo # required. Location to render the template to on the remote machine.
-        src: elasticsearch.j2.repo # required. Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.
+        dest: "{{ elasticsearch_yum_repo_template_dest }}" # required. Location to render the template to on the remote machine.
+        src: "{{ elasticsearch_yum_repo_template_file }}" # required. Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.
         owner: root # not required. Name of the user that should own the file/directory, as would be fed to I(chown).
         group: root # not required. Name of the group that should own the file/directory, as would be fed to I(chown).
     when: elasticsearch_repo 
 
   - name: Add the elasticsearch yum repository with yum repo
     yum_repository:
-        name: "Elasticsearch repository for 7.x packages" # required. Unique repository ID. This option builds the section name of the repository in the repo file.,This parameter is only required if I(state) is set to C(present) or C(absent).
+        name: "{{ elasticsearch_yum_repo_name }}" # required. Unique repository ID. This option builds the section name of the repository in the repo file.,This parameter is only required if I(state) is set to C(present) or C(absent).
         enabled: yes # not required. This tells yum whether or not use this repository.
         owner: root # not required. Name of the user that should own the file/directory, as would be fed to I(chown).
         repo_gpgcheck: no # not required. This tells yum whether or not it should perform a GPG signature check on the repodata from this repository.
@@ -26,6 +26,6 @@
 
   - name: Install elasticsearch
     yum:
-      name: elasticsearch
+      name: "{{ elasticsearch_yum_name }}"
       state: installed
     notify: start and enable elasticsearch

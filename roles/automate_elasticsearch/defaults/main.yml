@@ -1,7 +1,7 @@
 ---
 # defaults file for automate_elasticsearch
 
-#elasticsearch_repo:
+#elasticsearch_repo_data:
 #  baseurl: "https://artifacts.elastic.co/packages/7.x/yum"
 #  name: "Elasticsearch repository for 7.x packages"
 #  enabled: yes 
@@ -15,7 +15,21 @@
 #  group: "root"
 #  async: yes
 
+#elasticsearch_configure_data:
+#  elasticsearch_service_dir:
+#  elasticsearch_service_file:
+#  elasticsearch_yml:
+#  elasticsearch_config_template:
+
 elasticsearch_install: "True"
 elasticsearch_configure: "True"
 elasticsearch_repo: "True"
 yum_repo: "False"
+elasticsearch_service_dir: "/usr/lib/systemd/system/elasticsearch.service"
+elasticsearch_service_file: "elasticsearch.service"
+elasticsearch_config_dest: "/etc/elasticsearch/elasticsearch.yml"
+elasticsearch_config_template: "elasticsearch.j2.yml"
+elasticsearch_yum_repo_template_dest: "/etc/yum.repos.d/elasticsearch.repo"
+elasticsearch_yum_repo_template_file: "elasticsearch.j2.repo"
+elasticsearch_yum_name: "elasticsearch"
+elasticsearch_yum_repo_name: "Elasticsearch repository for 7.x packages"

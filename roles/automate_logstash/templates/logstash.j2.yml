@@ -249,4 +249,3 @@ path.logs: /var/log/logstash
 #xpack.management.elasticsearch.ssl.verification_mode: certificate
 #xpack.management.elasticsearch.sniffing: false
 #xpack.management.logstash.poll_interval: 5s
-[root@tower-elk logstash]# 
