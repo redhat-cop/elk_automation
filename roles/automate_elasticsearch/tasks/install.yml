@@ -10,7 +10,7 @@
 
   - name: Add the elasticsearch yum repository with yum repo
     yum_repository:
-        name: "Elasticsearch repository for 7.x packages" # required. Unique repository ID. This option builds the section name of the repository in the repo file.,This parameter is only required if I(state) is set to C(present) or C(absent).
+        name: "{{ elasticsearch_yum_repo_name }}" # required. Unique repository ID. This option builds the section name of the repository in the repo file.,This parameter is only required if I(state) is set to C(present) or C(absent).
         enabled: yes # not required. This tells yum whether or not use this repository.
         owner: root # not required. Name of the user that should own the file/directory, as would be fed to I(chown).
         repo_gpgcheck: no # not required. This tells yum whether or not it should perform a GPG signature check on the repodata from this repository.
