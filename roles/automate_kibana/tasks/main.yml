@@ -4,9 +4,9 @@
   - name: install Kibana
     include_tasks: install.yml
     when: kibana_install
-    tag: install
+    tag: install_kibana
 
   - name: Configure Kibana
     include_tasks: configure.yml
     when: kibana_install
-    tag: configure
+    tag: kibana_configure

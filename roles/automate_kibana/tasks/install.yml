@@ -26,7 +26,7 @@
 
   - name: Install kibana
     yum:
-      name: { kibana_rpm }
+      name: "{{ kibana_rpm }}"
       state: installed
     notify: start and enable kibana
     #when: yum_repository.success or template.success
