@@ -2,15 +2,15 @@
 
   - name: Template systemd elasticsearch service
     template:
-        dest: "/usr/lib/systemd/system/elasticsearch.service" # required. Location to render the template to on the remote machine.
-        src: "elasticsearch.service" # required. Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.
+        dest: "{{ elasticsearch_service_dir }}" # required. Location to render the template to on the remote machine.
+        src: "{{ elasticsearch_service_file }}" # required. Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.
         owner: root # not required. Name of the user that should own the file/directory, as would be fed to I(chown).
         group: root # not required. Name of the group that should own the file/directory, as would be fed to I(chown).
 
   - name: Template elasticsearch.yml
     template:
-        dest: "/etc/elasticsearch/elasticsearch.yml" # required. Location to render the template to on the remote machine.
-        src: "elasticsearch.j2.yml" # required. Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.
+        dest: "{{ elasticsearch_yml }}" # required. Location to render the template to on the remote machine.
+        src: "{{ elasticsearch_config_template }}" # required. Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.
         owner: "elasticsearch" # not required. Name of the user that should own the file/directory, as would be fed to I(chown).
         group: "elasticsearch" # not required. Name of the group that should own the file/directory, as would be fed to I(chown).
         backup: no # not required. Create a backup file including the timestamp information so you can get the original file back if you somehow clobbered it incorrectly.

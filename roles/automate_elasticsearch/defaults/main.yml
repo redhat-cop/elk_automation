@@ -1,21 +1,28 @@
 ---
 # defaults file for automate_elasticsearch
 
-#elasticsearch_repo:
-#  baseurl: "https://artifacts.elastic.co/packages/7.x/yum"
-#  name: "Elasticsearch repository for 7.x packages"
-#  enabled: yes 
-#  owner: root
-#  repo_gpgcheck: no
-#  sslverify: yes
-#  gpgkey: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
-#  state: present
-#  gpgcheck: "yes"
-#  description: "Elasticsearch Repository"
-#  group: "root"
-#  async: yes
+elasticsearch_repo_data:
+  baseurl: "https://artifacts.elastic.co/packages/7.x/yum"
+  name: "Elasticsearch repository for 7.x packages"
+  enabled: yes 
+  owner: root
+  repo_gpgcheck: no
+  sslverify: yes
+  gpgkey: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+  state: present
+  gpgcheck: "yes"
+  description: "Elasticsearch Repository"
+  group: "root"
+  async: yes
 
 elasticsearch_install: "True"
 elasticsearch_configure: "True"
 elasticsearch_repo: "True"
 yum_repo: "False"
+elasticsearch_service_dir: "/usr/lib/systemd/system/elasticsearch.service"
+elasticsearch_service_file: "elasticsearch.service"
+elasticsearch_config_dest: "/etc/elasticsearch/elasticsearch.yml"
+elasticsearch_config_template: "elasticsearch.j2.yml"
+elasticsearch_yum_repo_template_dest: "/etc/yum.repos.d/elasticsearch.repo"
+elasticsearch_yum_repo_template_file: "elasticsearch.j2.repo"
+elasticsearch_yum_name: "elasticsearch"

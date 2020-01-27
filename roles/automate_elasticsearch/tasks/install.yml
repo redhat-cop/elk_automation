@@ -2,8 +2,8 @@
 
   - name: Add the elasticsearch yum repository
     template:
-        dest: /etc/yum.repos.d/elasticsearch.repo # required. Location to render the template to on the remote machine.
-        src: elasticsearch.j2.repo # required. Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.
+        dest: "{{ elasticsearch_yum_repo_template_dest }}" # required. Location to render the template to on the remote machine.
+        src: "{{ elasticsearch_yum_repo_template_file }}" # required. Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.
         owner: root # not required. Name of the user that should own the file/directory, as would be fed to I(chown).
         group: root # not required. Name of the group that should own the file/directory, as would be fed to I(chown).
     when: elasticsearch_repo 
@@ -26,6 +26,6 @@
 
   - name: Install elasticsearch
     yum:
-      name: elasticsearch
+      name: "{{ elasticsearch_yum_name }}"
       state: installed
     notify: start and enable elasticsearch
