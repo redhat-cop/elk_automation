@@ -21,3 +21,31 @@
       enabled: "True" # not required. Whether the service should start on boot. B(At least one of state and enabled are required.)
       daemon_reload: yes # not required. run daemon-reload before doing any other operations, to make sure systemd has read any changes.
       state: started # not required. choices: reloaded;restarted;started;stopped. C(started)/C(stopped) are idempotent actions that will not run commands unless necessary. C(restarted) will always bounce the service. C(reloaded) will always reload.
+
+  - name: start and enable packetbeat
+    systemd:
+      name: packetbeat # not required. Name of the service. When using in a chroot environment you always need to specify the full name i.e. (crond.service).
+      enabled: "True" # not required. Whether the service should start on boot. B(At least one of state and enabled are required.)
+      daemon_reload: yes # not required. run daemon-reload before doing any other operations, to make sure systemd has read any changes.
+      state: started # not required. choices: reloaded;restarted;started;stopped. C(started)/C(stopped) are idempotent actions that will not run commands unless necessary. C(restarted) will always bounce the service. C(reloaded) will always reload.
+
+  - name: start and enable functionalbeat
+    systemd:
+      name: functionalbeat # not required. Name of the service. When using in a chroot environment you always need to specify the full name i.e. (crond.service).
+      enabled: "True" # not required. Whether the service should start on boot. B(At least one of state and enabled are required.)
+      daemon_reload: yes # not required. run daemon-reload before doing any other operations, to make sure systemd has read any changes.
+      state: started # not required. choices: reloaded;restarted;started;stopped. C(started)/C(stopped) are idempotent actions that will not run commands unless necessary. C(restarted) will always bounce the service. C(reloaded) will always reload.
+
+  - name: start and enable journalbeat
+    systemd:
+      name: journalbeat # not required. Name of the service. When using in a chroot environment you always need to specify the full name i.e. (crond.service).
+      enabled: "True" # not required. Whether the service should start on boot. B(At least one of state and enabled are required.)
+      daemon_reload: yes # not required. run daemon-reload before doing any other operations, to make sure systemd has read any changes.
+      state: started # not required. choices: reloaded;restarted;started;stopped. C(started)/C(stopped) are idempotent actions that will not run commands unless necessary. C(restarted) will always bounce the service. C(reloaded) will always reload.
+
+  - name: start and enable journalbeat
+    systemd:
+      name: journalbeat # not required. Name of the service. When using in a chroot environment you always need to specify the full name i.e. (crond.service).
+      enabled: "True" # not required. Whether the service should start on boot. B(At least one of state and enabled are required.)
+      daemon_reload: yes # not required. run daemon-reload before doing any other operations, to make sure systemd has read any changes.
+      state: started # not required. choices: reloaded;restarted;started;stopped. C(started)/C(stopped) are idempotent actions that will not run commands unless necessary. C(restarted) will always bounce the service. C(reloaded) will always reload.

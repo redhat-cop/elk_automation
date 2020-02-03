@@ -1,5 +1,5 @@
 ---
 
-  - hosts: all
+  - hosts: elk_test
     roles:
       - automate_beats

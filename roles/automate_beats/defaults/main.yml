@@ -1,2 +1,7 @@
 ---
 # defaults file for automate_beats
+
+filebeat: "True"
+metricbeat: "True"
+packetbeat: "True"
+auditbeat: "True"
