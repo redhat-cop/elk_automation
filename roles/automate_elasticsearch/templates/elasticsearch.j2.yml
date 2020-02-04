@@ -14,27 +14,27 @@
 #
 # Use a descriptive name for your cluster:
 #
-#cluster.name: my-application
+cluster.name: "{{ elasticsearch_cluster_name }}"
 #
 # ------------------------------------ Node ------------------------------------
 #
 # Use a descriptive name for the node:
 #
-#node.name: node-1
+node.name: "{{ ansible_hostname }}"
 #
 # Add custom attributes to the node:
 #
-#node.attr.rack: r1
+node.attr.rack: "{{ elasticsearc_node_attribute }}"
 #
 # ----------------------------------- Paths ------------------------------------
 #
 # Path to directory where to store the data (separate multiple locations by comma):
 #
-path.data: /var/lib/elasticsearch
+path.data: "{{ elasticsearch_data_dir }}"
 #
 # Path to log files:
 #
-path.logs: /var/log/elasticsearch
+path.logs: "{{ elasticsearch_data_logs }}"
 #
 # ----------------------------------- Memory -----------------------------------
 #
