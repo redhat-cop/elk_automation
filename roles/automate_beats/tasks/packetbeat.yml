@@ -1,0 +1,14 @@
+---
+
+  - name: Install Packetbeat
+    yum:
+      name: "https://artifacts.elastic.co/downloads/beats/packetbeat/packetbeat-7.5.2-x86_64.rpm"
+      state: installed
+
+  - name: Configure Packetbeat
+    template:
+        dest: /etc/packetbeat/packetbeat.yml # required. Location to render the template to on the remote machine.
+        src: packetbeat.j2.yml # required. Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.
+        owner: packetbeat # not required. Name of the user that should own the file/directory, as would be fed to I(chown).
+        group: packetbeat # not required. Name of the group that should own the file/directory, as would be fed to I(chown).
+    notify: start and enable packetbeat

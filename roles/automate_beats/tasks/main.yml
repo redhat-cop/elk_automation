@@ -12,7 +12,7 @@
 
   - name: Install Packetbeat
     include_tasks: metricbeat.yml
-    when: metricbeat.yml
+    when: packetbeat
     
   - name: Install Auditbeat.yml
     include_tasks: auditbeat.yml
