@@ -6,7 +6,7 @@
         src: "{{ elasticsearch_yum_repo_template_file }}" # required. Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.
         owner: root # not required. Name of the user that should own the file/directory, as would be fed to I(chown).
         group: root # not required. Name of the group that should own the file/directory, as would be fed to I(chown).
-    when: elasticsearch_repo 
+    when: elasticsearch_repo|bool
 
   - name: Add the elasticsearch yum repository with yum repo
     yum_repository:
@@ -22,7 +22,7 @@
         baseurl: "https://artifacts.elastic.co/packages/7.x/yum"
         group: "root"
         async: yes # not required. If set to C(yes) Yum will download packages and metadata from this repo in parallel, if possible.
-    when: elasticsearch_yum_repo
+    when: elasticsearch_yum_repo|bool
 
   - name: Install elasticsearch
     yum:

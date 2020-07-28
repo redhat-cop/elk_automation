@@ -1,6 +1,36 @@
 ---
 # defaults file for automate_beats
 
+auditbeat_rpm: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-"{{ auditbeat_version }}".rpm
+auditbeat_version: "7.5.1-x86_64"
+auditbeat_dir: /etc/auditbeat/auditbeat.yml
+auditbeat_src: auditbeat.j2.yml
+
+filebeat_rpm: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-"{{ filebeat_version }}".rpm
+filebeat_version: "7.5.1-x86_64"
+filebeat_dir: /etc/filebeat/filebeat.yml
+filebeat_src: filebeat.j2.yml
+
+functionbeat_rpm: https://artifacts.elastic.co/downloads/beats
+functionbeat_version:
+functionbeat_dir:
+functionbeat_src:
+
+heartbeat_rpm: https://artifacts.elastic.co/downloads/beats
+hearbeat_version:
+heartbeat_dir:
+heartbeat_src:
+
+journalbeat_rpm: https://artifacts.elastic.co/downloads/beats
+journalbeat_version:
+journalbeat_dir:
+journalbeat_src:
+
+metricbeat_rpm: https://artifacts.elastic.co/downloads/beats
+metricbeat_version:
+metricbeat_dir:
+metricbeat_src:
+
 filebeat: "True"
 metricbeat: "True"
 packetbeat: "True"
