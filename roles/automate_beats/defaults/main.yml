@@ -28,8 +28,8 @@ journalbeat_src:
 
 metricbeat_rpm: https://artifacts.elastic.co/downloads/beats
 metricbeat_version:
-metricbeat_dir:
-metricbeat_src:
+metricbeat_dir: /etc/metricbeat/metricbeat.yml
+metricbeat_src: metricbeat.j2.yml
 
 filebeat: "True"
 metricbeat: "True"
