@@ -1,0 +1,15 @@
+---
+
+  
+  - name: Install Heartbeat
+    yum:
+      name: "{{ heartbeat_rpm }}"
+      state: installed # not required. choices: absent;installed;latest;present;removed. Whether to install (C(present) or C(installed), C(latest)), or remove (C(absent) or C(removed)) a package.,C(present) and C(installed) will simply ensure that a desired package is installed.,C(latest) will update the specified package if it's not of the latest available version.,C(absent) and C(removed) will remove the specified package.
+  
+  - name: Configure Heartbeat
+    template:
+        dest: "{{ heartbeat_dir }}" # required. Location to render the template to on the remote machine.
+        src: "{{ heartbeat_src }}" # required. Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.
+        owner: heartbeat # not required. Name of the user that should own the file/directory, as would be fed to I(chown).
+        group: heartbeat # not required. Name of the group that should own the file/directory, as would be fed to I(chown).
+    notify: start and enable heartbeat
