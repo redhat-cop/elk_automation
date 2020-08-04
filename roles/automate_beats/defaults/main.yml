@@ -11,7 +11,7 @@ filebeat_version: "7.5.1-x86_64"
 filebeat_dir: /etc/filebeat/filebeat.yml
 filebeat_src: filebeat.j2.yml
 
-functionbeat_rpm: https://artifacts.elastic.co/downloads/beats
+functionbeat_rpm: https://artifacts.elastic.co/downloads/beats/
 functionbeat_version: 7.8.1-x86_64
 functionbeat_dir: /etc/functionbeat.yml
 functionbeat_src: functionbeat.j2.yml

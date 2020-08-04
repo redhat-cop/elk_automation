@@ -1,7 +1,10 @@
 ---
 # tasks file for automate_beats
 
-
+  - name: Install all the Beats
+    include_tasks: install_all.yml
+    when: install_all_beats
+    
   - name: Install Filebeat
     include_tasks: filebeat.yml
     when: filebeat
