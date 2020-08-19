@@ -1,0 +1,19 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include automate_elasticsearch"
+      include_role:
+        name: "automate_elasticsearch"
+
+    - name: "Include automate_kibana"
+      include_role:
+        name: "automate_kibana"
+
+    - name: "Include automate_logstash"
+      include_role:
+        name: "automate_logstash"
+
+    - name: "Include automate_beats"
+      include_role:
+        name: "automate_beats"

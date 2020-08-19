@@ -1,7 +1,45 @@
 ---
 # defaults file for automate_beats
 
-filebeat: "True"
-metricbeat: "True"
-packetbeat: "True"
-auditbeat: "True"
+auditbeat_rpm: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{ auditbeat_version }}.rpm
+auditbeat_version: "7.5.1-x86_64"
+auditbeat_dir: /etc/auditbeat/auditbeat.yml
+auditbeat_src: auditbeat.j2.yml
+
+filebeat_rpm: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{ filebeat_version }}.rpm
+filebeat_version: "7.5.1-x86_64"
+filebeat_dir: /etc/filebeat/filebeat.yml
+filebeat_src: filebeat.j2.yml
+
+functionbeat_rpm: https://artifacts.elastic.co/downloads/beats/
+functionbeat_version: 7.8.1-x86_64
+functionbeat_dir: /etc/functionbeat.yml
+functionbeat_src: functionbeat.j2.yml
+
+heartbeat_rpm: https://artifacts.elastic.co/downloads/beats/heartbeat/heartbeat-{{ hearbeat_version }}.rpm
+hearbeat_version: 7.8.1-x86_64
+heartbeat_dir: /etc/heartbeat.yml
+heartbeat_src: heartbeat.j2.ymlJournalbeatastic.co/downloads/beats/metricbeat/metricbeat-{{ metricbeat_version }}.rpm
+
+metricbeat_version: 7.8.1-x86_64
+metricbeat_dir: /etc/metricbeat/metricbeat.yml
+metricbeat_src: metricbeat.j2.yml
+
+packetbeat_rpm:
+packetbeat_version:
+packetbeat_dir:
+packagebeat_src:
+
+allbeats_rpm:
+  - filebeat
+  - heartbeat
+  - auditbeat
+  - packetbeat
+  - metricbeat
+  - journalbeat
+
+install_all_beats: "True"
+filebeat: "False"
+metricbeat: "False"
+packetbeat: "False"
+auditbeat: "False"
